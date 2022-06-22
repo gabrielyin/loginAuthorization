@@ -1,0 +1,40 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100vh;
+    justify-content: center;
+}
+
+div {
+    min-width: 300px;
+}
+
+label {
+    padding: 0.4rem 0rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 0.4rem 0.8rem;
+}
+
+label {
+    font-size: 2rem;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}

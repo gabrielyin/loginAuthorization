@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <label for="">Username</label>
+            <input type="text" id="username">
+            <br>
+            <label for="">Password</label>
+            <input type="password" id="password">
+            <br>
+            <button onclick="login()">Login</button>        
+        </section>
+        <section>
+            <button onclick="document.location.href='/create'">Dont have an account</button>
+        </section>
+        <div id="displayUsuarios"></div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
