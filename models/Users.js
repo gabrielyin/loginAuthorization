@@ -34,10 +34,12 @@ async function loginUser(req, res) {
                     })
                 } else {
                     const token = jwt.sign({userRole: user.role}, SECRET, { expiresIn: 300 })
+                    req.headers['x-access-token'] = token
                     res.status(200).json({
                         auth: true,
                         token
                     })
+                    next()
                 }
             })
             .catch((err) => res.json(err))

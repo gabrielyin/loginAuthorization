@@ -5,20 +5,22 @@ function login() {
     fetch(`http://localhost:3000/api/login/${username}`, {
     }).then((user) => user.json())
     .then((data) => {
-        if (data.statusCode == 'User not found') {
+        if (data == 'ACCESS DENIED') {
+            alert('USER NOT FOUND')
             return
         } else {
             jwtToken = data.token
-            fetch('http://localhost:3000/api/admin', {
-                headers: {'x-access-token': jwtToken}
-            }).then(res => res.json(res))
-            .then((data) => {
-                console.log(data.message);
-                document.location.href='/admin'
-            }).catch((err) => {
-                console.log(err);
-            })
+            alert(`TOKEN ${jwtToken}`);
+            document.location.href=`/api/admin/${jwtToken}`
         }
+    }).catch((err) => {
+        console.log(err);
+    })
+}
+
+function moveToAdmin(token) {
+    fetch('http://localhost:3000/api/admin', {
+        headers: {'x-access-token': jwtToken}
     }).catch((err) => {
         console.log(err);
     })
