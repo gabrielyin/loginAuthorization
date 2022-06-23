@@ -1,6 +1,4 @@
 const openDb = require('../configdb')
-const jwt = require('jsonwebtoken')
-const SECRET = 'gy'
 
 async function createTableUsers() {
     openDb().then(db => {
@@ -29,17 +27,10 @@ async function loginUser(req, res) {
         db.get('SELECT * FROM users WHERE username=?', [username])
             .then(user => {
                 if (user == null) {
-                    res.status(404).json({
-                        "statusCode": "User not found"
-                    })
+                    res.status(404).json("USER NOT FOUND")
                 } else {
-                    const token = jwt.sign({userRole: user.role}, SECRET, { expiresIn: 300 })
-                    req.headers['x-access-token'] = token
-                    res.status(200).json({
-                        auth: true,
-                        token
-                    })
-                    next()
+                    req.session.userRole = user.role
+                    res.status(200).json("USER FOUND")
                 }
             })
             .catch((err) => res.json(err))
